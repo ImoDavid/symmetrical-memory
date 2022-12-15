@@ -6,7 +6,8 @@ const colors = {
     NAV_TEXT: '#7A7A7A',
     NAV_TEXT_HOVER: '#EAAE65',
     WHITE: '#fff',
-    TITLE: '#3F3F3F'
+    TITLE: '#3F3F3F',
+    GREY:'#54595F'
 }
 
 export {colors}
