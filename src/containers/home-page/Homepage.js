@@ -8,28 +8,34 @@ import {
   GalleryImages,
   Investments,
   Testimonials,
-} from "../../components/home-page";
-import CallToAction from "../../components/home-page/callToAction";
+  CallToAction,
+} from '../../components/home-page';
 
 const Homepage = () => {
   return (
     <>
-      <Box height={["40vh", "55vh"]}>
+      <Box height={['40vh', '55vh']}>
         <Box
-          component={"img"}
+          component={'img'}
           src={HERO}
-          height={"100%"}
-          width={"100%"}
-          sx={{ objectFit: "cover" }}
+          height={'100%'}
+          width={'100%'}
+          sx={{ objectFit: 'cover' }}
         />
       </Box>
-      <Banner backgroundColor={colors.BROWN}/>
+      <Banner backgroundColor={colors.BROWN} />
       <GalleryHeader />
       <GalleryImages />
       <Testimonials />
       <Investments />
-      <CallToAction />
-      <Banner backgroundColor={colors.GREY}/>
+      <CallToAction
+        title={'OUR WINNERS GALLERY'}
+        label={'Enter Email'}
+        backgroundColor={colors.SECONDARY}
+        buttonColor={colors.ORANGE}
+        buttonText={'SUBMIT'}
+      />
+      <Banner backgroundColor={colors.GREY} />
     </>
   );
 };
