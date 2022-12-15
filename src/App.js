@@ -8,7 +8,8 @@ import { Claimrequirement } from './containers/claim-requirement-page';
 import { ShipmentTracking } from './containers/shipment-tracking-page';
 import { Beneficiary } from './containers/beneficiary-page';
 import { WinnersPage } from './containers/winners-list-page';
-import ContactPage from './containers/contact-page/contactPage';
+import { ContactPage } from './containers/contact-page';
+import { Footer } from './components/footer';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Navigate to='/homepage' />} />
         <Route path='/home' element={<Homepage />} />
       </Routes>
+      <Footer />
     </>
   );
 }

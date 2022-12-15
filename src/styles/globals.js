@@ -7,7 +7,8 @@ const colors = {
     NAV_TEXT_HOVER: '#EAAE65',
     WHITE: '#fff',
     TITLE: '#3F3F3F',
-    GREY:'#54595F'
+    GREY: '#54595F',
+    BLACK: '#222222'
 }
 
 export {colors}

@@ -24,9 +24,9 @@ const StyledContainer = styled(Box)({
 });
 const StyledNavLink = styled(Box)({
   textDecoration: 'none',
-  fontSize: '1.4rem',
-    cursor: 'pointer',
-   marginLeft:'125rem'
+  fontSize: ['1rem', '1.2rem'],
+  cursor: 'pointer',
+  marginLeft: '1.5rem',
 });
 
 const Navbar = () => {
@@ -54,32 +54,13 @@ const Navbar = () => {
             <Avatar src={LOGO} alt={'logo'} sx={{ width: 56, height: 56 }} />
           </Box>
           <Box flex={1}>
-                      <Stack direction={'row'}>
-                          
+            <Stack direction={'row'}>
+              {navLinks.map((ele) => (
               <StyledNavLink>
-                <NavLink to='/home'>Home</NavLink>
+                <NavLink to={ele.url}>{ele.page}</NavLink>
               </StyledNavLink>
-              <StyledNavLink>
-                <NavLink to='/about'>About</NavLink>
-              </StyledNavLink>
-              <StyledNavLink>
-                <NavLink to='/apply'>How To Apply</NavLink>
-              </StyledNavLink>
-              <StyledNavLink>
-                <NavLink to='/claim'>claim</NavLink>
-              </StyledNavLink>
-              <StyledNavLink>
-                <NavLink to='/contact'>contact</NavLink>
-              </StyledNavLink>
-              <StyledNavLink>
-                <NavLink to='/contact'>contact</NavLink>
-              </StyledNavLink>
-              <StyledNavLink>
-                <NavLink to='/contact'>contact</NavLink>
-              </StyledNavLink>
-              <StyledNavLink>
-                <NavLink to='/contact'>contact</NavLink>
-              </StyledNavLink>
+                
+              ))}
             </Stack>
           </Box>
         </Stack>
