@@ -4,6 +4,7 @@ const colors = {
     BROWN: '#B44008',
     ORANGE: 'orange',
     NAV_TEXT: '#7A7A7A',
+    FOOTER_TEXT:'#cccccc',
     NAV_TEXT_HOVER: '#EAAE65',
     WHITE: '#fff',
     TITLE: '#3F3F3F',
