@@ -35,6 +35,7 @@ const StyledNavLink = styled(Box)({
   fontSize: ["1rem", "0.8rem"],
   cursor: "pointer",
   marginRight: "1.8rem",
+  marginBottom:["0rem","0.5rem"]
 });
 
 const StyledLink = styled(NavLink)({
@@ -47,11 +48,12 @@ const StyledLink = styled(NavLink)({
 
 const StyledMobileContainer = styled(Box)({
   position: "absolute",
-  height: "10rem",
+  height: "12rem",
   width: "100%",
   backgroundColor: colors.WHITE,
   top: "4.9rem",
   left: 0,
+  padding:"1rem 0 "
 });
 
 const Navbar = () => {

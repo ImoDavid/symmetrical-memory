@@ -10,10 +10,12 @@ import { Beneficiary } from './containers/beneficiary-page';
 import { WinnersPage } from './containers/winners-list-page';
 import { ContactPage } from './containers/contact-page';
 import { Footer } from './components/footer';
+import {Topbar} from './components/topbar';
 
 function App() {
   return (
     <>
+      <Topbar/>
       <Navbar />
       <Routes>
         <Route path='/contact' element={<ContactPage />} />

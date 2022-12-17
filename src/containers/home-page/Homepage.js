@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, } from "@mui/material";
 import HERO from "../../assets/banner.webp";
 import { colors } from "../../styles/globals";
+import { IoChevronForward } from "react-icons/io5";
 import {
   Banner,
   GalleryHeader,
@@ -33,7 +34,7 @@ const Homepage = () => {
         label={'Enter Email'}
         backgroundColor={colors.SECONDARY}
         buttonColor={colors.ORANGE}
-        buttonText={'SUBMIT'}
+        buttonText={`SUBMIT`}
       />
       <Banner backgroundColor={colors.GREY} />
     </>
