@@ -33,7 +33,8 @@ const Homepage = () => {
         title={'OUR WINNERS GALLERY'}
         label={'Enter Email'}
         backgroundColor={colors.SECONDARY}
-        buttonColor={colors.ORANGE}
+        buttonColor={colors.BLACK}
+         buttonColorHover={colors.ORANGE }
         buttonText={`SUBMIT`}
       />
       <Banner backgroundColor={colors.GREY} />

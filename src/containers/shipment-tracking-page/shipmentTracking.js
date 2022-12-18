@@ -19,7 +19,8 @@ const ShipmentTracking = () => {
           title={'Track your Shipment'}
           label={'Enter Tracking No'}
           backgroundColor={colors.WHITE}
-          buttonColor={'black'}
+          buttonColor={colors.BLACK}
+          buttonColorHover={colors.ORANGE}
           buttonText={'TRACK RESULT'}
         />
       </Box>
