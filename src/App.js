@@ -25,7 +25,7 @@ function App() {
         <Route path='/claim' element={<Claimrequirement />} />
         <Route path='/apply' element={<HowToApply />} />
         <Route path='/about' element={<AboutPage />} />
-        <Route path='/' element={<Navigate to='/homepage' />} />
+        <Route path='/' element={<Navigate to='/home' />} />
         <Route path='/home' element={<Homepage />} />
       </Routes>
       <Footer />

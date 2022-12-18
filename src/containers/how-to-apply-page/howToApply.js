@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Box, Container, styled, Typography } from '@mui/material';
 import { colors } from '../../styles/globals';
-import {NewForm} from '../../components/form/';
+import {HowToApplyForm} from '../../components/form/';
 
 const StyledBox = styled(Box)({
   background: `url(https://res.cloudinary.com/doexbijh7/images/v1620999167/how-to-apply/how-to-apply.webp?_i=AA.jpg)`,
@@ -36,7 +36,7 @@ const HowToApply = () => {
           </Typography>
                 </Box>
                 <Container maxWidth={"sm"}>
-                <Box paddingX={1}><NewForm/> </Box>     
+                <Box paddingX={1}><HowToApplyForm/> </Box>     
                 </Container>
                          
         </Container>

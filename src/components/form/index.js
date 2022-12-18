@@ -1,1 +1,1 @@
-export { default as NewForm } from "./newForm";
+export { default as HowToApplyForm } from "./howToApplyForm";
