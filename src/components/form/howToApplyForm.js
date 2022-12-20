@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   Box,
   Container,
@@ -40,70 +41,91 @@ const HowToApplyForm = ({}) => {
   const validate = Yup.object({
     firstname: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
     surname: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
     address: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
     mobileNumber: Yup.number()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
     Email: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
 
     maritalStatus: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
 
-    age: Yup.string()
+    age: Yup.number()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
     gender: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
     paymentType: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
+      .required("Field is Required"),
     occupation: Yup.string()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
-    occupation: Yup.string()
+      .required("Field is Required"),
+    monthlyIncome: Yup.number()
       .min(1, "Item Name must contain atleast a character")
-      .required("Item Name is Required"),
-    description: Yup.string(),
-    quatity: Yup.number(),
-    category: Yup.string(),
+      .required("Field is Required"),
+    retired: Yup.string()
+      .min(1, "Item Name must contain atleast a character")
+      .required("Field is Required"),
   });
   return (
     <Container maxwidth={"md"}>
       <Formik
         initialValues={{
-          name: "",
-          description: "",
-          quantity: 1,
-          category: "",
+          firstname: "",
+          surname: "",
+          address: "",
+          mobileNumber: "",
+          Email: "",
+          maritalStatus: "",
+          age: "",
+          gender: "",
+          paymentType: "",
+          occupation: "",
+          monthlyIncome: "",
+          retired: "",
         }}
         validationSchema={validate}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          setTimeout(() => {
+          setTimeout(async () => {
             const payload = {
-              title: values.name,
-              des: values.description,
-              isChecked: false,
-              category: values.category,
-              quantity: values.quantity.toString(),
+              firstname: values.firstname,
+              surname: values.surname,
+              address: values.address,
+              mobileNumber: values.mobileNumber,
+              Email: values.Email,
+              maritalStatus: values.maritalStatus,
+              age: values.age,
+              gender: values.gender,
+              paymentType: values.paymentType,
+              occupation: values.occupation,
+              monthlyIncome: values.monthlyIncome,
+              retired: values.retired,
             };
-            resetForm(true);
-            setSubmitting(false);
+            try {
+              // const response = await axios.post('/user',payload);
+              // console.log(response);
+              prompt(payload);
+              resetForm(true);
+              setSubmitting(false);
+            } catch (err) {
+              console.log(err);
+            }
           }, 400);
         }}
       >
-        {({ isSubmitting, resetForm }) => (
+        {({ isSubmitting }) => (
           <Form>
-            {/* {isSubmitting && <div>Loading...</div>} */}
             <StyledBox>
               <StyledLabel>
                 {" "}
@@ -224,7 +246,7 @@ const HowToApplyForm = ({}) => {
                 {" "}
                 monthly income <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
-              <Input name="income" type="text" />
+              <Input name="monthlyIncome" type="text" />
             </StyledBox>
             <StyledBox>
               <StyledLabel>
@@ -246,8 +268,12 @@ const HowToApplyForm = ({}) => {
               />
             </StyledBox>
             <StyledBox>
-              <StyledButton type="submit" variant="contained">
-                SUBMIT
+              <StyledButton
+                type="submit"
+                variant="contained"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Please Wait" : "SUBMIT"}
               </StyledButton>
             </StyledBox>
           </Form>

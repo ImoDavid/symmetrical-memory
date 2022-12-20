@@ -11,6 +11,9 @@ const CallToAction = ({
   buttonColor,
   buttonText,
   buttonColorHover,
+  onClick,
+  value,
+  onChange,
 }) => {
   return (
     <Box paddingTop={[10, 10]} paddingBottom={[8, 8]} bgcolor={backgroundColor}>
@@ -27,8 +30,9 @@ const CallToAction = ({
               id="outlined-basic"
               label={label}
               variant="outlined"
-              sx={{ width: ["21rem", "25rem"] }}
-            />
+              onChange={onChange}
+              value={value}
+              sx={{ width: ["21rem", "25rem"] }} />
           </Stack>
           <Box marginX={2} marginY={[1, 0]}>
             <Button
@@ -41,6 +45,7 @@ const CallToAction = ({
                 },
               }}
               variant="contained"
+              onClick={onClick}
             >
               {buttonText}
             </Button>
