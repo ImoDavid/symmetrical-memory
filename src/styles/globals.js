@@ -9,7 +9,8 @@ const colors = {
     WHITE: '#fff',
     TITLE: '#3F3F3F',
     GREY: '#54595F',
-    BLACK: '#222222'
+    BLACK: '#222222',
+    TRANS_BLACK:"rgba(0,0,0,0.5)",
 }
 
 export {colors}

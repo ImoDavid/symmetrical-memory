@@ -7,10 +7,6 @@ import {
   Typography,
   Button,
   Stack,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-  MenuItem,
 } from "@mui/material";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -115,7 +111,7 @@ const HowToApplyForm = ({}) => {
             try {
               // const response = await axios.post('/user',payload);
               // console.log(response);
-              prompt(payload);
+              //console.log(payload);
               resetForm(true);
               setSubmitting(false);
             } catch (err) {
@@ -135,8 +131,12 @@ const HowToApplyForm = ({}) => {
                 direction={["column", "row"]}
                 justifyContent={"space-between"}
               >
-                <Input name="firstname" type="text" placeholder="firstname" />
-                <Input name="surname" type="text" placeholder="lastname" />
+                <Box marginRight={[0, 2]}>
+                  <Input name="firstname" type="text" placeholder="firstname" />
+                </Box>
+                <Box>
+                  <Input name="surname" type="text" placeholder="lastname" />
+                </Box>
               </Stack>
             </StyledBox>
             <StyledBox>
