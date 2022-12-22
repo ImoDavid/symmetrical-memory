@@ -17,7 +17,7 @@ const StyledInput = styled(Field)({
   "&.form-control": {
     display: " block",
     width: "100%",
-    height: "6rem",
+    height: "5rem",
     padding: ".5rem",
     // fontSize:,
     lineHeight: "",

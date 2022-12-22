@@ -47,7 +47,7 @@ const ContactPage = () => {
           Contact Us
         </Typography>
       </StyledBox>
-      <StyledSection height={"80vh"}>
+      <StyledSection minHeight={"80vh"}>
         <Container maxWidth={"md"}>
           <Stack direction={["column", "row"]} justifyContent={"space-between"}>
             <Box paddingx={1} marginY={2}>
