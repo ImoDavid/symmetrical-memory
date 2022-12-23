@@ -9,10 +9,11 @@ const StyledFormGroup = styled(Box)({
   flexFlow: "row wrap",
   alignItems: "center",
   marginBottom: 0,
+  
 })
 const StyledInput = styled(Field)({
   "&.is-invalid": {
-    border: "red",
+    border: "1px solid red",
   },
 
   "&.form-control": {
@@ -24,11 +25,15 @@ const StyledInput = styled(Field)({
      lineHeight:"" ,
     // color: ,
     // backgroundCcolor: 
-    // backgroundClip: "padding-box",
+     backgroundClip: "padding-box",
      border:"1px solid grey"
   },
 });
-
+const StyledErrorMessage = styled(ErrorMessage)({
+  "&.error":{
+    color:"red",
+  }
+}) 
 const Input = ({ label, touched, ...props }) => {
   const [field, meta] = useField(props);
 
@@ -44,11 +49,11 @@ const Input = ({ label, touched, ...props }) => {
         {...props}
         name={field.name}
         id={field.name}
-        className={`form-control form-control-lg  
+        className={`is-invalid form-control
         ${meta.touched && meta.error && `is-invalid`}`}
       />
 
-      <ErrorMessage component="div" className="error" name={field.name} />
+      <StyledErrorMessage component="div" className="error" color={"red"} name={field.name} />
     </StyledFormGroup>
   );
 };

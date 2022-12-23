@@ -29,6 +29,11 @@ const StyledInput = styled(Field)({
   },
   "&.form-control > option": {},
 });
+const StyledErrorMessage = styled(ErrorMessage)({
+  "&.error":{
+    color:"red",
+  }
+}) 
 
 const Select = ({ label, touched, option, ...props }) => {
   const [field, meta] = useField(props);
@@ -55,7 +60,7 @@ const Select = ({ label, touched, option, ...props }) => {
         ))}
       </StyledInput>
 
-      <ErrorMessage component="div" className="error" name={field.name} />
+      <StyledErrorMessage component="div" className="error" name={field.name} />
     </StyledFormGroup>
   );
 };

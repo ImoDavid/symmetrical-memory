@@ -27,6 +27,11 @@ const StyledInput = styled(Field)({
     border: "1px solid grey",
   },
 });
+const StyledErrorMessage = styled(ErrorMessage)({
+  "&.error":{
+    color:"red",
+  }
+}) 
 
 const TextArea = ({ label, touched, ...props }) => {
   const [field, meta] = useField(props);
@@ -48,7 +53,7 @@ const TextArea = ({ label, touched, ...props }) => {
         ${meta.touched && meta.error && `is-invalid`}`}
       />
 
-      <ErrorMessage component="div" className="error" name={field.name} />
+      <StyledErrorMessage component="div" className="error" name={field.name} />
     </StyledFormGroup>
   );
 };

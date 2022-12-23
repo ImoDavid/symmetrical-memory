@@ -7,13 +7,9 @@ const GalleryHeader = () => {
   return (
     <Box paddingTop={[10, 8]} paddingBottom={[8, 6]}>
       <Container maxWidth={"lg"}>
-        <Stack
-          direction={"column"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
+       
           <Headline title={"our winners gallery"} />
-          <Box width={["100%", "60%"]}>
+          <Box width={["100%", "60%"]} marginX={"auto"}>
             <Typography
               textAlign={"center"}
               lineHeight={2}
@@ -25,7 +21,7 @@ const GalleryHeader = () => {
               and reduce poverty around the world
             </Typography>
           </Box>
-        </Stack>
+        
       </Container>
     </Box>
   );
