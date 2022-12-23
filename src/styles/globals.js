@@ -11,6 +11,7 @@ const colors = {
     GREY: '#54595F',
     BLACK: '#222222',
     TRANS_BLACK:"rgba(0,0,0,0.5)",
+    OFF_WHITE:"rgba(227, 226, 225)"
 }
 
 export {colors}
