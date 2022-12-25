@@ -106,7 +106,7 @@ const ShipmentTracking = () => {
                 <Box width={["55%", "80%"]} padding={1}>
                   <StyledTitle>Shipment Dates</StyledTitle>
                   <Divider
-                    m={1}
+                    m={1}b
                     color={colors.WHITE}
                     sx={{ height: ".1rem" }}
                   />

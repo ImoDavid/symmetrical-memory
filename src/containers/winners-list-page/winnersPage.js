@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Box,
   Container,
@@ -7,26 +7,28 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
-import { colors } from "../../styles/globals";
+
 import {Tables} from "../../components/table";
 const StyledBox = styled(Box)({
   background: `url(https://res.cloudinary.com/doexbijh7/images/v1635451723/images/images.webp?_i=AA)`,
   backgroundSize: "cover",
   backgroundPosition: "Top center",
 });
-function createData( calories, fat, carbs, protein) {
-  return { calories, fat, carbs, protein };
-}
 
-const rows = [
-  createData( 1, "Akpan","pending", 24, 4.0),
-  createData( 2, "Akpan", "pending", 4.3),
-  createData( 3, "Akpan", "pending", 6.0),
-  createData( 4, "Akpan", "pending", 4.3),
-  createData( 5, "Akpan", "pending", 3.9),
-];
 
 const WinnersPage = () => {
+  const [winners, setWinners] = useState([]);
+
+  useEffect(() => {
+    const GetWinners = async () => {
+      const response = await axios.get(
+        `https://raw.pchofficials.com/api/get-winners`
+      );
+      console.log(response.data);
+      setWinners(response.data.winners);
+    };
+    GetWinners();
+  }, []);
   return (
     <>
       <StyledBox height={["40vh", "55vh"]} />;
@@ -36,7 +38,7 @@ const WinnersPage = () => {
           <Typography mr> &#x2022;</Typography>    
           <Typography  fontWeight={700}> BENEFICIARY WINNER’S NAME DELIVERY STATUS</Typography>
           </Stack>
-          <Tables rows={rows}/>
+          <Tables rows={winners}/>
         </Container>
       </Box>
     </>

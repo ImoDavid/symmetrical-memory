@@ -1,9 +1,5 @@
 import React from "react";
 import {
-  Box,
-  Container,
-  styled,
-  Typography,
   Table,
   TableBody,
   TableCell,
@@ -26,7 +22,7 @@ const Tables = ({ rows }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row, index) => (
             <TableRow
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -34,10 +30,12 @@ const Tables = ({ rows }) => {
               {/* <TableCell component="th" scope="row">
             {row.name}
           </TableCell> */}
-              <TableCell align="left">{row.calories}</TableCell>
-              <TableCell align="left">{row.fat}</TableCell>
-              <TableCell align="left">{row.carbs}</TableCell>
-              <TableCell align="left">{row.protein}</TableCell>
+              <TableCell align="left">{index+1} </TableCell>
+              <TableCell align="left">
+                {row.first_name} {row.last_name}
+              </TableCell>
+              <TableCell align="left">{row.status}</TableCell>
+              <TableCell align="left">{row.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>

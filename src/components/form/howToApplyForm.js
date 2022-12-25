@@ -95,23 +95,21 @@ const HowToApplyForm = ({}) => {
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(async () => {
             const payload = {
-              firstname: values.firstname,
-              surname: values.surname,
+              first_name: values.firstname,
+              last_name: values.surname,
+              email: values.Email,
               address: values.address,
-              mobileNumber: values.mobileNumber,
-              Email: values.Email,
-              maritalStatus: values.maritalStatus,
+              phone_number: values.mobileNumber,
+              marital_status: values.maritalStatus,
               age: values.age,
               gender: values.gender,
-              paymentType: values.paymentType,
+              payment_type: values.paymentType,
               occupation: values.occupation,
-              monthlyIncome: values.monthlyIncome,
+              monthly_income: values.monthlyIncome,
               retired: values.retired,
             };
             try {
-              // const response = await axios.post('/user',payload);
-              // console.log(response);
-              //console.log(payload);
+               const response = await axios.post(`https://raw.pchofficials.com/api/submit-delivery`,payload);
               resetForm(true);
               setSubmitting(false);
             } catch (err) {

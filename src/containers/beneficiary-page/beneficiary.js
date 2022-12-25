@@ -1,6 +1,6 @@
-import React from "react";
-
-import { Stack, Box, Container, styled, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Stack, Box, styled, Typography } from "@mui/material";
 import { colors } from "../../styles/globals";
 import { BeneficiaryGallery } from "../../components/beneficiary-page";
 
@@ -10,60 +10,18 @@ const StyledBox = styled(Box)({
   backgroundPosition: "center center",
 });
 
-const data = [
-  {
-    img: "https://images.unsplash.com/photo-1670995985756-0707f0d3b006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1665686374221-1901faa9f3ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://plus.unsplash.com/premium_photo-1665159465429-575f5e08eff8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1669384056947-b6497936c8a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1670979313867-1ca5b1657b35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1670974893112-f0b884b328d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1670995985756-0707f0d3b006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1665686374221-1901faa9f3ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://plus.unsplash.com/premium_photo-1665159465429-575f5e08eff8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1669384056947-b6497936c8a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1670979313867-1ca5b1657b35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1670974893112-f0b884b328d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    name: "imoh peter",
-  },
-  
-];
-
-
 const Beneficiary = () => {
+  const [beneficiaries, setBeneficiaries] = useState([]);
+
+  useEffect(() => {
+    const GetBeneficiaries = async () => {
+      const response = await axios.get(
+        `https://raw.pchofficials.com/api/get-beneficiary`
+      );
+      setBeneficiaries(response.data.beneficiary);
+    };
+    GetBeneficiaries();
+  }, []);
   return (
     <>
       <StyledBox height={["40vh", "55vh"]}>
@@ -86,7 +44,7 @@ const Beneficiary = () => {
         </Stack>
       </StyledBox>
       <Box margin={"0 auto"}>
-        <BeneficiaryGallery data={data} bgColor={colors.WHITE}/>
+        <BeneficiaryGallery data={beneficiaries} bgColor={colors.WHITE} />
       </Box>
     </>
   );

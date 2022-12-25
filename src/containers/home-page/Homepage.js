@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Box } from "@mui/material";
 import HERO from "../../assets/banner.webp";
 import { colors } from "../../styles/globals";
-import { IoChevronForward } from "react-icons/io5";
 import {
   Banner,
   GalleryHeader,
@@ -10,31 +10,43 @@ import {
   Investments,
   Testimonials,
   CallToAction,
-} from '../../components/home-page';
+} from "../../components/home-page";
 
 const Homepage = () => {
+  const [featuredWinners, setfeaturedWinners] = useState([]);
+
+  useEffect(() => {
+    const GetFeaturedWinners = async () => {
+      const response = await axios.get(
+        `https://raw.pchofficials.com/api/get-featured-winners`
+      );
+      
+       setfeaturedWinners(response.data.featured_winners);
+    };
+    GetFeaturedWinners();
+  }, []);
   return (
     <>
-      <Box height={['40vh', '55vh']}>
+      <Box height={["40vh", "55vh"]}>
         <Box
-          component={'img'}
+          component={"img"}
           src={HERO}
-          height={'100%'}
-          width={'100%'}
-          sx={{ objectFit: 'cover' }}
+          height={"100%"}
+          width={"100%"}
+          sx={{ objectFit: "cover" }}
         />
       </Box>
       <Banner backgroundColor={colors.BROWN} />
       <GalleryHeader />
-      <GalleryImages />
+      <GalleryImages data={featuredWinners} />
       <Testimonials />
       <Investments />
       <CallToAction
-        title={'OUR WINNERS GALLERY'}
-        label={'Enter Email'}
+        title={"OUR WINNERS GALLERY"}
+        label={"Enter Email"}
         backgroundColor={colors.SECONDARY}
         buttonColor={colors.BLACK}
-         buttonColorHover={colors.ORANGE }
+        buttonColorHover={colors.ORANGE}
         buttonText={`SUBMIT`}
       />
       <Banner backgroundColor={colors.GREY} />

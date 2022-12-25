@@ -28,10 +28,13 @@ const BeneficiaryGallery = ({ data, bgColor }) => {
     <Box marginTop={[6, 5]} marginBottom={[6, 8]}>
       <Container maxWidth={"lg"}>
         <GridContainer
-          gridTemplateColumns={["repeat(auto-fit, minmax(300px, 1fr))","repeat(4, minmax(200px, 1fr))"]}
+          gridTemplateColumns={[
+            "repeat(auto-fit, minmax(300px, 1fr))",
+            "repeat(4, minmax(200px, 1fr))",
+          ]}
         >
           {data.map((ele) => (
-            <StyledGridElements key={ele.img}>
+            <StyledGridElements key={ele.image}>
               <Card
                 sx={{
                   maxWidth: ["400", "300"],
@@ -42,20 +45,20 @@ const BeneficiaryGallery = ({ data, bgColor }) => {
                   component="img"
                   alt=""
                   height="300"
-                  image={ele.img}
+                  image={ele.image}
                 />
                 <CardContent>
                   <StyledTitle gutterBottom variant="h5" component="div">
                     {" "}
-                    Name: {ele.name}
+                    Name: {ele.first_name} {ele.last_name}
                   </StyledTitle>
                   <StyledTitle gutterBottom variant="h5" component="div">
                     {" "}
-                    status: {ele.name}
+                    status: {ele.status}
                   </StyledTitle>
                   <StyledTitle gutterBottom variant="h5" component="div">
                     {" "}
-                    Amount: {ele.name}
+                    Amount: ${ele.amount}
                   </StyledTitle>
                 </CardContent>
               </Card>
