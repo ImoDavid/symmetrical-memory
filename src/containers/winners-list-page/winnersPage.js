@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import {Helmet} from "react-helmet";
 import axios from "axios";
+
 import {
   Box,
   Container,
@@ -7,7 +9,6 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
-
 import {Tables} from "../../components/table";
 const StyledBox = styled(Box)({
   background: `url(https://res.cloudinary.com/doexbijh7/images/v1635451723/images/images.webp?_i=AA)`,
@@ -31,6 +32,9 @@ const WinnersPage = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>Winners | Pch Officials</title>
+      </Helmet>
       <StyledBox height={["40vh", "55vh"]} />;
       <Box paddingY={5} my={5}>
         <Container maxWidth={"md"}>

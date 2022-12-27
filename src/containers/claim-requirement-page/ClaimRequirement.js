@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Container, styled, Typography } from "@mui/material";
+import {Helmet} from "react-helmet";
 import { HowToApplyForm } from "../../components/form/";
 import { colors } from "../../styles/globals";
 
 const StyledBox = styled(Box)({
-  background: `url(https://pchofficials.com/wp-content/uploads/2022/01/Screenshot_20220107-084411_Gallery.jpg)`,
+  background: `url(https://res.cloudinary.com/dywofwzdx/image/upload/v1671988954/Screenshot_20220107-084411_Gallery_py5von.jpg)`,
   backgroundSize: "cover",
   backgroundPosition: "center center",
 });
@@ -12,6 +13,9 @@ const StyledBox = styled(Box)({
 const ClaimRequirement = () => {
   return (
     <>
+      <Helmet>
+        <title>Claim Requirement | Pch Officials</title>
+      </Helmet>
       <StyledBox height={["40vh", "55vh"]} />;
       <Container maxWidth={"md"}>
         <Box paddingY={6}>
@@ -24,12 +28,12 @@ const ClaimRequirement = () => {
             //   letterSpacing={'2px'}
             textAlign={"center"}
           >
-            You have to fill the following delivery information in others to
+            You have to fill the following delivery information in order to
             continue your winning and make your delivery
           </Typography>
         </Box>
         <Container maxWidth={"sm"}>
-          <Box paddingX={1}>
+          <Box paddingX={1} paddingTop={['', 2]} paddingBottom={[5,8]}>
             <HowToApplyForm />{" "}
           </Box>
         </Container>

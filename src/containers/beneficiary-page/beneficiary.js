@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import {Helmet} from "react-helmet";
 import axios from "axios";
 import { Stack, Box, styled, Typography } from "@mui/material";
 import { colors } from "../../styles/globals";
 import { BeneficiaryGallery } from "../../components/beneficiary-page";
 
 const StyledBox = styled(Box)({
-  background: `url(https://pchofficials.com/wp-content/uploads/2021/03/2119297840.jpg)`,
+  background: `url(https://res.cloudinary.com/dywofwzdx/image/upload/v1671989092/2119297840_wncfax.jpg)`,
   backgroundSize: "cover",
   backgroundPosition: "center center",
 });
@@ -24,6 +25,9 @@ const Beneficiary = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>Beneficiary | Pch Officials</title>
+      </Helmet>
       <StyledBox height={["40vh", "55vh"]}>
         <Stack
           direction={"row"}
@@ -36,8 +40,8 @@ const Beneficiary = () => {
             fontWeight={700}
             letterSpacing={".3rem"}
             textAlign={"center"}
-            verticalAlign={"middle"}
             lineHeight={["40vh", "55vh"]}
+            sx={{verticalAlign: 'middle'}}
           >
             BENEFICIARIES
           </Typography>

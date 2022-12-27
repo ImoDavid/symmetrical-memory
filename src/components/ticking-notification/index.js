@@ -1,0 +1,1 @@
+export {default as TickingNotification} from './TickingNotification'

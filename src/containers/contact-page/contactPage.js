@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {Helmet} from "react-helmet";
 import { Box, Stack, Container, styled, Typography, Link } from "@mui/material";
 import { IoHome, IoMail } from "react-icons/io5";
 import { BsTelephoneFill } from "react-icons/bs";
@@ -7,16 +7,17 @@ import { ContactForm } from "../../components/form/";
 import { colors } from "../../styles/globals";
 
 const StyledBox = styled(Box)({
-  background: `url(https://pchofficials.com/wp-content/uploads/2021/03/chen-mizrach-1NTOQHBRegA-unsplash-scaled.jpg)`,
+  background: `url(https://res.cloudinary.com/dywofwzdx/image/upload/v1671989307/chen-mizrach-1NTOQHBRegA-unsplash-scaled_1_b1tlvj.jpg)`,
   backgroundSize: "cover",
-  backgroundPosition: "-20%",
+  backgroundPosition: "center center",
+  backgroundRepeat: "no-repeat",
 });
 
 const StyledSection = styled(Box)({
   background: `linear-gradient(
     rgba(0, 0, 0, 0.65), 
     rgba(0, 0, 0, 0.65)
-  ),url(https://pchofficials.com/wp-content/uploads/2021/03/miles-burke-idhx-MOCDSk-unsplash-scaled.jpg)`,
+  ),url(https://res.cloudinary.com/dywofwzdx/image/upload/v1671989245/miles-burke-idhx-MOCDSk-unsplash-scaled_jahkoe.jpg)`,
   backgroundSize: "cover",
   backgroundPosition: "center center",
 });
@@ -34,6 +35,9 @@ const StyledLinkBox = styled(Box)({
 const ContactPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Contact | Pch Officials</title>
+      </Helmet>
       <StyledBox height={["40vh", "55vh"]}>
         <Typography
           variant="h4"

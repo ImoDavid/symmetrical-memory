@@ -1,1 +1,1 @@
-export { default as Claimrequirement } from './ClaimRequirement';
+export { default as ClaimRequirement } from './ClaimRequirement';

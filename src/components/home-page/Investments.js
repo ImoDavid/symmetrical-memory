@@ -149,9 +149,9 @@ const Investments = () => {
             marginBottom={[2, 10]}
             marginX={"auto"}
           >
-            {partners.map((ele) => (
+            {partners.map((ele, i) => (
               <Box
-                key={ele.img}
+                key={i}
                 component={"img"}
                 src={ele.img}
                 width={"100%"}
@@ -173,8 +173,8 @@ const Investments = () => {
                   "repeat(4, minmax(200px, 1fr))",
                 ]}
               >
-                {data.map((ele) => (
-                  <StyledGridElements key={ele.img}>
+                {data.map((ele, i) => (
+                  <StyledGridElements key={i}>
                     <Card
                       sx={{
                         maxWidth: ["400", "300"],
@@ -204,7 +204,6 @@ const Investments = () => {
                           {ele.name}
                         </StyledTitle>
                         <StyledTitle
-                          gutterBottom
                           variant="h2"
                           color={colors.PRIMARY}
                           fontSize={"0.8rem"}

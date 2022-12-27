@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {Helmet} from "react-helmet";
 import {
   Box,
   styled,
@@ -14,14 +15,13 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-
 import { colors } from "../../styles/globals";
 import { CallToAction } from "../../components/home-page";
 
 
 
 const StyledBox = styled(Box)({
-  background: `url(https://pchofficials.com/wp-content/uploads/2021/04/pch-van.jpg)`,
+  background: `url(https://res.cloudinary.com/dywofwzdx/image/upload/v1671989031/pch-van_q4sn7e.jpg)`,
   backgroundSize: "cover",
   backgroundPosition: "top center",
 });
@@ -41,7 +41,7 @@ const StyledTitle = styled(Typography)({
   textTransform: "capitalize",
 });
 const ShipmentTracking = () => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [trackingReport, setTrackingReport] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -51,8 +51,9 @@ const ShipmentTracking = () => {
     setError(false);
   };
 
-  const HandleSubmit = async () => {
- 
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('query', e.target.value)
     try {
       setLoading(true);
       setTrackingReport(null);
@@ -61,16 +62,17 @@ const ShipmentTracking = () => {
       );
       setTrackingReport(response.data);
       setLoading(false);
-      setQuery("");
-
     } catch (error) {
+      setLoading(false);
       setError(true);
-      setLoading(false);  
     }
   };
 
   return (
     <>
+      <Helmet>
+        <title>Track Shipment | Pch Officials</title>
+      </Helmet>
       <StyledBox height={["40vh", "55vh"]} />;
       <Box paddingY={6}>
         <CallToAction
@@ -106,7 +108,7 @@ const ShipmentTracking = () => {
                 <Box width={["55%", "80%"]} padding={1}>
                   <StyledTitle>Shipment Dates</StyledTitle>
                   <Divider
-                    m={1}b
+                    m={1}
                     color={colors.WHITE}
                     sx={{ height: ".1rem" }}
                   />
@@ -226,8 +228,8 @@ const ShipmentTracking = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody bgcolor={colors.WHITE}>
-                    {trackingReport.shipping_activities.map((row) => (
-                      <TableRow key={row.name} sx={{ border: 0 }}>
+                    {trackingReport.shipping_activities.map((row, i) => (
+                      <TableRow key={i} sx={{ border: 0 }}>
                         <TableCell component="th">{row.updatedAt}</TableCell>
                         <TableCell>{row.activity}</TableCell>
                         <TableCell>{row.details}</TableCell>

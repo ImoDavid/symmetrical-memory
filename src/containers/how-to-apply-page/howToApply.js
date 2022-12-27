@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Helmet} from "react-helmet";
 import { Box, Container, styled, Typography } from "@mui/material";
 import { colors } from "../../styles/globals";
 import { HowToApplyForm } from "../../components/form/";
@@ -13,6 +13,9 @@ const StyledBox = styled(Box)({
 const HowToApply = () => {
   return (
     <>
+      <Helmet>
+        <title>How to Apply | Pch Officials</title>
+      </Helmet>
       <StyledBox height={["40vh", "55vh"]} />;
       <Box paddingY={6}>
         <Container maxWidth={"md"}>

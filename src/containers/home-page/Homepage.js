@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Box } from "@mui/material";
+import {Helmet} from "react-helmet";
 import HERO from "../../assets/banner.webp";
 import { colors } from "../../styles/globals";
 import {
@@ -27,6 +28,9 @@ const Homepage = () => {
   }, []);
   return (
     <>
+        <Helmet>
+            <title>Home | Pch Officials</title>
+        </Helmet>
       <Box height={["40vh", "55vh"]}>
         <Box
           component={"img"}

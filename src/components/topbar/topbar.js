@@ -13,7 +13,7 @@ const StyledLinkBox = styled(Box)({
     textTransform: "capitalize",
     fontSize: "0.9rem",
     fontWeight: "500",
-    marginBottom: "0.7rem",
+    // marginBottom: "0.7rem",
   });
   
   const StyledLink = styled(NavLink)({

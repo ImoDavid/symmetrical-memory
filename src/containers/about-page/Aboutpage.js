@@ -1,9 +1,10 @@
 import React from 'react';
+import {Helmet} from "react-helmet";
 import { Box, Container, styled, Typography } from '@mui/material';
 import { colors } from '../../styles/globals';
 
 const StyledBox = styled(Box)({
-  background: `url(https://pchofficials.com/wp-content/uploads/2021/03/macau-photo-agency-NhhhRZQxnFY-unsplash-scaled.jpg)`,
+  background: `url(https://res.cloudinary.com/dywofwzdx/image/upload/v1671988808/macau-photo-agency-NhhhRZQxnFY-unsplash-scaled_nixorf.jpg)`,
   backgroundSize: 'cover',
   backgroundPosition: 'top center',
 });
@@ -21,6 +22,9 @@ const StyledText = styled(Typography)({
 const AboutPage = () => {
   return (
     <>
+      <Helmet>
+        <title>About | Pch Officials</title>
+      </Helmet>
       <StyledBox height={['40vh', '55vh']} />;
       <Container maxWidth={'lg'}>
         <Box paddingY={9} paddingX={[2,0]}>
