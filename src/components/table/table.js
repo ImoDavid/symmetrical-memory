@@ -12,6 +12,7 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
+import formatCurrency from "../../utils/formatCurrency";
 
 const Tables = ({ rows }) => {
   return (
@@ -26,18 +27,17 @@ const Tables = ({ rows }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row, i) => (
             <TableRow
-              key={row.name}
+              key={i}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              {/* <TableCell component="th" scope="row">
-            {row.name}
-          </TableCell> */}
-              <TableCell align="left">{row.calories}</TableCell>
-              <TableCell align="left">{row.fat}</TableCell>
-              <TableCell align="left">{row.carbs}</TableCell>
-              <TableCell align="left">{row.protein}</TableCell>
+              <TableCell component="th" scope="row">
+            {i + 1}
+          </TableCell>
+              <TableCell align="left" sx={{textTransform: 'capitalize'}}>{row.first_name} {row.last_name}</TableCell>
+              <TableCell align="left">{row.status}</TableCell>
+              <TableCell align="left">{formatCurrency(row.amount)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
