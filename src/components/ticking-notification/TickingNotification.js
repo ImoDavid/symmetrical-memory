@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, styled, Typography } from "@mui/material";
+import { Box, Avatar, styled, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { colors } from "../../styles/globals";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,55 +17,67 @@ const StyledTickingNotificationContainer = styled(Box)({
   position: "fixed",
   bottom: "3%",
   left: "15px",
-  width: "400px",
+
   height: "100px",
-  zIndex: "300",
+  zIndex: "1000",
 });
 
 const StyledSlider = styled(Box)({
   display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   width: "100%",
   height: "100%",
+});
+const StyledBox = styled(Box)({
+  borderRadius: "15px",
+  padding: "1rem",
 });
 
 const TickingNotification = ({ data }) => {
   const filtered_data = data.filter((x) => x.image !== null);
   return (
-    <StyledTickingNotificationContainer>
+    <StyledTickingNotificationContainer width={["320px", "400px"]}>
       <Swiper
         slidesPerView={1}
-        effect={"fade"}
+        spaceBetween={30}
+        // effect={"fade"}
+        loop={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
-        speed={2000}
-        modules={[Autoplay, EffectFade]}
-        className="mySwiper"
+        speed={1000}
+        modules={[Autoplay]}
       >
-        <SwiperSlide>
-          {filtered_data.map((item, index) => (
-            <StyledSlider key={index}>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: colors.BLACK,
-                }}
-                fontWeight={700}
-                fontSize={16}
-                mb={2}
-                ml={2}
-                mr={2}
-                mt={2}
-                textAlign={"center"}
-                lineHeight={1.5}
-              >
-                `{item.first_name}
-                {item.last_name} just won {item.amount}`
-              </Typography>
+        {filtered_data.map((item, index) => (
+          <SwiperSlide key={index}>
+            <StyledSlider>
+              <Box mr>
+                <Avatar
+                  src={item.image}
+                  alt={"testimonial"}
+                  sx={{ width: 56, height: 56, ml: 2 }}
+                />
+              </Box>
+              <StyledBox bgcolor={colors.WHITE}>
+                <Typography
+                  sx={{
+                    color: colors.BLACK,
+                  }}
+                  fontWeight={700}
+                  fontSize={16}
+                  lineHeight={1.5}
+                  textAlign={"center"}
+                >
+                  {`${
+                    item.first_name + " " + item.last_name
+                  } received winning of $${item.amount} `}
+                </Typography>
+              </StyledBox>
             </StyledSlider>
-          ))}
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </StyledTickingNotificationContainer>
   );
