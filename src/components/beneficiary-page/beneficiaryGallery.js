@@ -1,6 +1,7 @@
 import React from "react";
 import {Box, Card, CardContent, CardMedia, Container, styled, Typography,} from "@mui/material";
 import {colors} from "../../styles/globals";
+import formatCurrency from "../../utils/formatCurrency";
 
 const GridContainer = styled(Box)({
     display: "grid",
@@ -56,7 +57,7 @@ const BeneficiaryGallery = ({data, bgColor}) => {
                                         status: {ele.status}
                                     </StyledTitle>
                                     <StyledTitle variant="body1" fontSize={'16px'} textTransform={'capitalize'}>
-                                        Amount: ${ele.amount}
+                                        Amount: {formatCurrency(ele.amount)}
                                     </StyledTitle>
                                 </CardContent>
                             </Card>

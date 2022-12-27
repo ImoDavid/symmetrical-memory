@@ -17,6 +17,8 @@ import {
 } from "@mui/material";
 import { colors } from "../../styles/globals";
 import { CallToAction } from "../../components/home-page";
+import formatCurrency from "../../utils/formatCurrency";
+import {StepProgress} from "../../components/step-progress";
 
 
 
@@ -53,7 +55,6 @@ const ShipmentTracking = () => {
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
-    console.log('query', e.target.value)
     try {
       setLoading(true);
       setTrackingReport(null);
@@ -103,6 +104,9 @@ const ShipmentTracking = () => {
               <StyledTitle padding={["0.5rem", "1rem"]}>
                 Tracking no.:{trackingReport.tracking_code}
               </StyledTitle>
+             <Box my={2}>
+               <StepProgress status={trackingReport.delivery_status} />
+             </Box>
               <Divider m={1} color={colors.WHITE} />
               <Stack direction={"row"}>
                 <Box width={["55%", "80%"]} padding={1}>
@@ -181,7 +185,7 @@ const ShipmentTracking = () => {
                 </Box>
                 <Box width={"33.3%"} padding={1}>
                   <StyledTitle variant={"body1"}>Content</StyledTitle>
-                  <Typography>${trackingReport.item_content}</Typography>
+                  <Typography>{formatCurrency(trackingReport.item_content)}</Typography>
                 </Box>
               </Stack>
             </StyledInnerBox>
