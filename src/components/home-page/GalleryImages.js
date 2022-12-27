@@ -41,7 +41,7 @@ const GalleryImages = ({data}) => {
             <Container maxWidth={'lg'}>
                 <GridContainer>
                     {data.map((ele, i)=> (<StyledGridElements key={i}>
-                        <Box component={'img'} src={'https://raw.pchofficials.com/'+ele.image}
+                        <Box component={'img'} src={ele.image}
                              height={'100%'}
                              width={'100%'} sx={{objectFit: 'cover'}}
                         />

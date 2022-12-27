@@ -43,7 +43,7 @@ const BeneficiaryGallery = ({data, bgColor}) => {
                                     component="img"
                                     alt=""
                                     height="240"
-                                    image={'https://raw.pchofficials.com/' + ele.image}
+                                    image={ele.image}
                                     sx={{objectFit:  "cover"}}
                                 />
                                 <CardContent sx={{paddingX: 0}}>
