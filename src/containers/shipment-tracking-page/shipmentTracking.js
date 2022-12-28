@@ -40,7 +40,7 @@ const StyledDivider = styled(Divider)({
 });
 const StyledTitle = styled(Typography)({
   color: colors.PRIMARY,
-  textTransform: "capitalize",
+  // textTransform: "capitalize",
 });
 const ShipmentTracking = () => {
   const [query, setQuery] = useState('');
@@ -68,6 +68,8 @@ const ShipmentTracking = () => {
       setError(true);
     }
   };
+
+  console.log(trackingReport);
 
   return (
     <>
@@ -101,7 +103,7 @@ const ShipmentTracking = () => {
             <Divider />
 
             <StyledInnerBox>
-              <StyledTitle padding={["0.5rem", "1rem"]}>
+              <StyledTitle padding={["0.5rem", "1rem"]} textTransform={'uppercase'}>
                 Tracking no.:{trackingReport.tracking_code}
               </StyledTitle>
              <Box my={2}>
@@ -117,10 +119,10 @@ const ShipmentTracking = () => {
                     sx={{ height: ".1rem" }}
                   />
                   <Stack direction={["column", "row"]}>
-                    <Typography mr={["0", "5rem"]}>
+                    <Typography mr={["0", "5rem"]} textTransform={'capitalize'}>
                       Ship date: {trackingReport.createdAt}
                     </Typography>
-                    <Typography>
+                    <Typography textTransform={'capitalize'}>
                       Delivery date: {trackingReport.deliveryDate}
                     </Typography>
                   </Stack>
@@ -132,7 +134,7 @@ const ShipmentTracking = () => {
                     color={colors.WHITE}
                     sx={{ height: ".1rem" }}
                   />
-                  <Typography>{trackingReport.destination}</Typography>
+                  <Typography textTransform={'capitalize'}>{trackingReport.destination}</Typography>
                 </Box>
               </Stack>
             </StyledInnerBox>
@@ -151,7 +153,7 @@ const ShipmentTracking = () => {
                     sx={{ height: ".1rem" }}
                   />
                   <Box>
-                    <Typography>
+                    <Typography  textTransform={'capitalize'}>
                       Federal government grant (fgg) Washington , DC, United
                       States, 94849, United States
                     </Typography>
@@ -164,7 +166,7 @@ const ShipmentTracking = () => {
                     color={colors.WHITE}
                     sx={{ height: ".1rem" }}
                   />
-                  <Typography>{trackingReport.receiver_address}</Typography>
+                  <Typography  textTransform={'capitalize'}>{trackingReport.receiver_address}</Typography>
                 </Box>
               </Stack>
             </StyledInnerBox>
@@ -185,7 +187,7 @@ const ShipmentTracking = () => {
                 </Box>
                 <Box width={"33.3%"} padding={1}>
                   <StyledTitle variant={"body1"}>Content</StyledTitle>
-                  <Typography>{formatCurrency(trackingReport.item_content)}</Typography>
+                  <Typography  textTransform={'capitalize'}>{formatCurrency(trackingReport.item_content)}</Typography>
                 </Box>
               </Stack>
             </StyledInnerBox>
@@ -198,17 +200,17 @@ const ShipmentTracking = () => {
               <Stack direction={"row"}>
                 <Box width={"55%"} padding={1}>
                   <Stack direction={["column", "row"]}>
-                    <Typography mr={["0", "5rem"]}>
+                    <Typography mr={["0", "5rem"]}  textTransform={'capitalize'}>
                       Service type: {trackingReport.delivery_type}
                     </Typography>
-                    <Typography>
+                    <Typography  textTransform={'capitalize'}>
                       Weight:{" "}
                       {trackingReport.item_weight + trackingReport.item_unit}
                     </Typography>
                   </Stack>
                 </Box>
                 <Box width={"45%"} padding={1}>
-                  <Typography color={colors.BLACK}>
+                  <Typography color={colors.BLACK}  textTransform={'capitalize'}>
                     Reference: {trackingReport.id}
                   </Typography>
                 </Box>

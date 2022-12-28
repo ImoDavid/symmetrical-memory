@@ -33,7 +33,7 @@ const Topbar = () => {
             justifyContent={"space-around"}
             alignItems={"center"}
           >
-           <StyledLinkBox display={["none","block"]}>
+           <StyledLinkBox display={["none", 'none', "block"]}>
               <StyledLink href="/" underline="none" >
                 {
                   <Typography variant="span" color={colors.ORANGE} mr={1} >

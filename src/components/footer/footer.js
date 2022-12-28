@@ -49,9 +49,10 @@ const Footer = () => {
                         />
                         <Typography
                             fontSize={"0.8rem"}
-                            fontWeight={700}
+                            fontWeight={500}
                             color={colors.NAV_TEXT}
                             lineHeight={2}
+                            letterSpacing={1.2}
                         >
                             Publishers Clearing House is a leading direct-to-consumer company
                             offering a unique blend of curated multi-channel shopping and

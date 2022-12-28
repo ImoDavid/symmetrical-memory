@@ -1,8 +1,5 @@
 import React from 'react';
 import {Box, styled, Typography} from '@mui/material';
-import {BsFileRichtextFill, BsHouseDoor} from 'react-icons/bs';
-import {MdOutlinePayments} from 'react-icons/md';
-import {IoCubeOutline} from 'react-icons/io5';
 import {colors} from "../../styles/globals";
 
 const MainContainer = styled(Box)({

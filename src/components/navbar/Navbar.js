@@ -62,13 +62,30 @@ const StyledLink = styled(NavLink)({
 
 const StyledMobileContainer = styled(Box)({
     position: "absolute",
-    height: "12rem",
+    height: "auto",
     width: "100%",
-    backgroundColor: colors.WHITE,
-    top: "4.9rem",
+    backgroundColor: '#f3f3f3',
+    top: "4rem",
     left: 0,
     padding: "1rem 0 ",
 });
+
+const MobileLink = styled(NavLink)({
+    textDecoration: "none",
+    color: colors.NAV_TEXT,
+    marginBottom: "1rem",
+    textTransform: "capitalize",
+    fontWeight: 700,
+    fontSize: '14px',
+
+    '&:last-child': {
+        marginBottom: 0,
+    },
+    "&:hover": {
+        color: colors.ORANGE,
+        textDecoration: "underline",
+    }
+})
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -165,17 +182,12 @@ const Navbar = () => {
                                 <RxHamburgerMenu/>
                             </Box>
                             {navbarOpen && (
-                                <StyledMobileContainer>
-                                    <Stack direction={"column"}>
+                                <StyledMobileContainer boxShadow={2}>
+                                    <Stack direction={"column"} alignItems={'center'} justifyContent={'center'}>
                                         {navLinks.map((ele) => (
-                                            <StyledNavLink
-                                                key={ele.url}
-                                                onClick={() => {
-                                                    setNavbarOpen(!navbarOpen);
-                                                }}
-                                            >
-                                                <StyledLink
+                                                <MobileLink
                                                     to={ele.url}
+                                                    key={ele.url}
                                                     underline="none"
                                                     color={colors.NAV_TEXT}
                                                     onClick={() => {
@@ -183,8 +195,7 @@ const Navbar = () => {
                                                     }}
                                                 >
                                                     {ele.page}
-                                                </StyledLink>
-                                            </StyledNavLink>
+                                                </MobileLink>
                                         ))}
                                     </Stack>
                                 </StyledMobileContainer>
