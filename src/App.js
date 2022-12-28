@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Route, Routes } from 'react-router-dom';
+import axios from "axios";
 import { Homepage } from './containers/home-page';
 import { Navbar } from './components/navbar';
 import { AboutPage } from './containers/about-page';
@@ -12,8 +13,6 @@ import { ContactPage } from './containers/contact-page';
 import { Footer } from './components/footer';
 import {Topbar} from './components/topbar';
 import {TickingNotification} from "./components/ticking-notification";
-import axios from "axios";
-
 function App() {
     const [winners, setWinners] = useState([]);
 
