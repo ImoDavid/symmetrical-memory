@@ -31,7 +31,7 @@ const Homepage = () => {
         <Helmet>
             <title>Home | Pch Officials</title>
         </Helmet>
-      <Box height={["40vh", "55vh"]}>
+      <Box height={["40vh", '50vh', "55vh"]}>
         <Box
           component={"img"}
           src={HERO}

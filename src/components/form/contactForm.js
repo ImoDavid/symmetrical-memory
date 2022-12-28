@@ -17,7 +17,7 @@ const StyledLabel = styled(Typography)({
   fontWeight: "500",
   textTransform: "uppercase",
 });
-const StyledAsterisk = styled(Typography)({
+const StyledAsterisk = styled('span')({
   color: "red",
   display: "inline-block",
 });
@@ -37,11 +37,11 @@ const ContactForm = () => {
   const validate = Yup.object({
     firstname: Yup.string().min(
       1,
-      "Item Name must contain atleast a character"
+      "Item Name must contain at least a character"
     ),
-    surname: Yup.string().min(1, "Item Name must contain atleast a character"),
-    email: Yup.string().min(1, "Item Name must contain atleast a character"),
-    message: Yup.string().min(1, "Item Name must contain atleast a character"),
+    surname: Yup.string().min(1, "Item Name must contain at least a character"),
+    email: Yup.string().min(1, "Item Name must contain at least a character"),
+    message: Yup.string().min(1, "Item Name must contain at least a character"),
   });
   return (
     <Box padding={1} backgroundColor={colors.TRANS_BLACK}>

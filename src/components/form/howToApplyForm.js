@@ -18,7 +18,7 @@ const StyledLabel = styled(Typography)({
     fontWeight: "500",
     textTransform: "uppercase",
 });
-const StyledAsterisk = styled(Typography)({
+const StyledAsterisk = styled('span')({
     color: "red",
     display: "inline-block",
 });
@@ -98,7 +98,6 @@ const HowToApplyForm = ({}) => {
                     <Form>
                         <StyledBox>
                             <StyledLabel>
-                                {" "}
                                 FULL NAME <StyledAsterisk>*</StyledAsterisk>
                             </StyledLabel>
                             <Stack
@@ -115,14 +114,12 @@ const HowToApplyForm = ({}) => {
                         </StyledBox>
                         <StyledBox>
                             <StyledLabel>
-                                {" "}
                                 address <StyledAsterisk>*</StyledAsterisk>
                             </StyledLabel>
                             <Input name="address" type="text" placeholder={'Enter Address...'}/>
                         </StyledBox>
                         <StyledBox>
                             <StyledLabel>
-                                {" "}
                                 cell phone <StyledAsterisk>*</StyledAsterisk>
                             </StyledLabel>
                             <Input

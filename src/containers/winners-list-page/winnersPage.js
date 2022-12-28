@@ -25,7 +25,6 @@ const WinnersPage = () => {
       const response = await axios.get(
         `https://raw.pchofficials.com/api/get-winners`
       );
-      console.log(response.data);
       setWinners(response.data.winners);
     };
     GetWinners();

@@ -78,8 +78,19 @@ const StyledSection = styled(Box)({
 
 const GridContainer = styled(Box)({
   display: "grid",
-  gridGap: "22px",
-  placeItems: "center",
+  gridTemplateColumns: `repeat(auto-fill, minmax(285px, 1fr))`,
+  gridGap: '22px',
+  alignItems: 'stretch',
+
+  '@media screen and (max-width: 1200px)': {
+    gridGap: '14px',
+    gridTemplateColumns: `repeat(auto-fill, minmax(250px, 1fr))`
+  },
+
+  '@media screen and (max-width: 768px)': {
+    gridGap: '14px',
+    gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`
+  }
 });
 
 const StyledTitle = styled(Box)({
