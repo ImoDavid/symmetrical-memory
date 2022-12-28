@@ -10,6 +10,7 @@ import { ShipmentTracking } from './containers/shipment-tracking-page';
 import { Beneficiary } from './containers/beneficiary-page';
 import { WinnersPage } from './containers/winners-list-page';
 import { ContactPage } from './containers/contact-page';
+import { ErrorPage } from './containers/error-page';
 import { Footer } from './components/footer';
 import {Topbar} from './components/topbar';
 import {TickingNotification} from "./components/ticking-notification";
@@ -45,6 +46,7 @@ function App() {
         <Route path='/apply' element={<HowToApply />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/' element={<Homepage />} />
+        <Route path='*' element={<ErrorPage/>}/>
       </Routes>
       <Footer />
     </>

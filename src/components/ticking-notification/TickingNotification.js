@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay, EffectFade } from "swiper";
+import { Autoplay } from "swiper";
 import formatCurrency from "../../utils/formatCurrency";
 
 const StyledTickingNotificationContainer = styled(Box)({
