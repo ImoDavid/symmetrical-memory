@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Box, Container, styled, Typography, Button } from "@mui/material";
 import { colors } from "../../styles/globals";
@@ -7,7 +6,6 @@ import { colors } from "../../styles/globals";
 const StyledButton = styled(Button)({
   backgroundColor: colors.PRIMARY,
   marginTop: "1rem",
-  textDecoration: "none",
   "&:hover": {
     backgroundColor: colors.BLACK,
   },
