@@ -5,7 +5,7 @@ import { HowToApplyForm } from "../../components/form/";
 import { colors } from "../../styles/globals";
 
 const StyledBox = styled(Box)({
-  background: `url(https://res.cloudinary.com/dywofwzdx/image/upload/v1671988954/Screenshot_20220107-084411_Gallery_py5von.jpg)`,
+  background: `url(https://res.cloudinary.com/dywofwzdx/image/upload/v1672407754/movers_parallax_1_c1lfgf.jpg)`,
   backgroundSize: "cover",
   backgroundPosition: "center center",
 });
