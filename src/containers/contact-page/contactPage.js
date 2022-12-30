@@ -76,9 +76,9 @@ const ContactPage = () => {
                   New York, United States
                 </Link>
               </StyledLinkBox>
-              <StyledLinkBox>
+              <StyledLinkBox  sx={{textTransform: 'none'}}>
                 <Link
-                  href="mailto:support@pchofficials.com"
+                  href="mailto:support@pchofficials.net"
                   underline="none"
                   color={colors.FOOTER_TEXT}
                 >
@@ -87,7 +87,7 @@ const ContactPage = () => {
                       <IoMail />
                     </Typography>
                   }
-                  support@pchofficials.com
+                  support@pchofficials.net
                 </Link>
               </StyledLinkBox>
               <StyledLinkBox>

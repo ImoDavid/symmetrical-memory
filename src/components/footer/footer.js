@@ -102,9 +102,9 @@ const Footer = () => {
                                 New York, United States
                             </StyledLink>
                         </StyledLinkBox>
-                        <StyledLinkBox>
+                        <StyledLinkBox sx={{textTransform: 'none'}}>
                             <Link
-                                href="mailto:support@pchofficials.com"
+                                href="mailto:support@pchofficials.net"
                                 underline="none"
                                 color={colors.FOOTER_TEXT}
                             >
@@ -113,7 +113,7 @@ const Footer = () => {
                                         <IoMail />
                                     </Typography>
                                 }
-                                support@pchofficials.com
+                                support@pchofficials.net
                             </Link>
                         </StyledLinkBox>
                         <StyledLinkBox>

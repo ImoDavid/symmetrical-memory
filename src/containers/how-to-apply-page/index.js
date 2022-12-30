@@ -1,1 +1,1 @@
-export { default as HowToApply } from './howToApply';
+export {default as HowToApply} from './howToApply'

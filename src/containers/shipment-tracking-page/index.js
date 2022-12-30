@@ -1,1 +1,1 @@
-export { default as ShipmentTracking } from './shipmentTracking';
+export {default as ShipmentTracking} from './shipmentTracking'

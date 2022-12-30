@@ -1,1 +1,1 @@
-export { default as Beneficiary } from './beneficiary';
+export {default as Beneficiary} from './beneficiary'

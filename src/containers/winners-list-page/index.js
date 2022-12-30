@@ -1,1 +1,1 @@
-export { default as WinnersPage } from './winnersPage';
+export {default as WinnersPage} from './winnersPage'
