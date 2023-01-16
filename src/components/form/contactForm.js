@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import {
   Box,
   Container,
@@ -9,7 +10,7 @@ import {
 } from "@mui/material";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Input, TextArea } from "../commons";
+import { Input, TextArea, FormSuccess } from "../commons";
 import { colors } from "../../styles/globals";
 
 const StyledLabel = styled(Typography)({
@@ -17,7 +18,7 @@ const StyledLabel = styled(Typography)({
   fontWeight: "500",
   textTransform: "uppercase",
 });
-const StyledAsterisk = styled('span')({
+const StyledAsterisk = styled("span")({
   color: "red",
   display: "inline-block",
 });
@@ -33,16 +34,15 @@ const StyledButton = styled(Button)({
   },
 });
 
+const validate = Yup.object({
+  firstname: Yup.string().min(1, "Item Name must contain at least a character"),
+  surname: Yup.string().min(1, "Item Name must contain at least a character"),
+  email: Yup.string().min(1, "Item Name must contain at least a character"),
+  message: Yup.string().min(1, "Item Name must contain at least a character"),
+});
 const ContactForm = () => {
-  const validate = Yup.object({
-    firstname: Yup.string().min(
-      1,
-      "Item Name must contain at least a character"
-    ),
-    surname: Yup.string().min(1, "Item Name must contain at least a character"),
-    email: Yup.string().min(1, "Item Name must contain at least a character"),
-    message: Yup.string().min(1, "Item Name must contain at least a character"),
-  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   return (
     <Box padding={1} backgroundColor={colors.TRANS_BLACK}>
       <Container maxwidth={"lg"}>
@@ -58,16 +58,18 @@ const ContactForm = () => {
             setTimeout(async () => {
               const payload = {
                 firstname: values.firstname,
-                surname: values.surname,
+                lastname: values.surname,
                 Email: values.Email,
                 message: values.message,
               };
               try {
-                // const response = await axios.post('/user',payload);
-                // console.log(response);
-                //console.log(payload);
+                const response = await axios.post(
+                  `https://raw.pchofficials.com/api/contact-form`,
+                  payload
+                );
                 resetForm(true);
                 setSubmitting(false);
+                setFormSubmitted(true);
               } catch (err) {
                 console.log(err);
               }
@@ -128,6 +130,9 @@ const ContactForm = () => {
             </Form>
           )}
         </Formik>
+        {formSubmitted && (
+          <FormSuccess text="Thank you! we've received your message and we'll be in touch soon!" />
+        )}
       </Container>
     </Box>
   );
