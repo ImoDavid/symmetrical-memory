@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Box, Container, styled, Typography, Span } from "@mui/material";
+import { Box, Container, styled, Typography, } from "@mui/material";
 import { colors } from "../../styles/globals";
 import { HowToApplyForm } from "../../components/form/";
 
