@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Container, styled, Typography } from "@mui/material";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { HowToApplyForm } from "../../components/form/";
 import { colors } from "../../styles/globals";
 
@@ -33,8 +33,15 @@ const ClaimRequirement = () => {
           </Typography>
         </Box>
         <Container maxWidth={"sm"}>
-          <Box paddingX={1} paddingTop={['', 2]} paddingBottom={[5,8]}>
+          <Box paddingX={1} paddingTop={["", 2]} paddingBottom={[5, 8]}>
             <HowToApplyForm />{" "}
+            <Typography variant="body2" color={colors.NAV_TEXT} my={8}>
+              <Box component="span" color="red">
+                NOTE:{" "}
+              </Box>
+              We advise you to abide with the Terms and Conditions so that we
+              can proceed.
+            </Typography>
           </Box>
         </Container>
       </Container>

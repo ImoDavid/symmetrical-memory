@@ -1,6 +1,6 @@
 import React from "react";
-import {Helmet} from "react-helmet";
-import { Box, Container, styled, Typography } from "@mui/material";
+import { Helmet } from "react-helmet";
+import { Box, Container, styled, Typography, Span } from "@mui/material";
 import { colors } from "../../styles/globals";
 import { HowToApplyForm } from "../../components/form/";
 
@@ -35,6 +35,10 @@ const HowToApply = () => {
           <Container maxWidth={"sm"}>
             <Box paddingX={1}>
               <HowToApplyForm />{" "}
+              <Typography variant="body2" color={colors.NAV_TEXT} my={8}>
+                <Box component="span" color="red">NOTE: </Box>We advise you to abide with
+                the Terms and Conditions so that we can proceed.
+              </Typography>
             </Box>
           </Container>
         </Container>

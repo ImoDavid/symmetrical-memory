@@ -14,6 +14,7 @@ import { ErrorPage } from './containers/error-page';
 import { Footer } from './components/footer';
 import {Topbar} from './components/topbar';
 import {TickingNotification} from "./components/ticking-notification";
+
 function App() {
     const [winners, setWinners] = useState([]);
 
