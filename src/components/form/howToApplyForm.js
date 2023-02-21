@@ -48,7 +48,7 @@ const validate = Yup.object({
   gender: Yup.string().required("Required"),
   paymentType: Yup.string().required("Required"),
   occupation: Yup.string().required("Required"),
-  monthlyIncome: Yup.number()
+  monthlyIncome: Yup.string()
     .min(1, "Item Name must contain at least a character")
     .required("Required"),
   retired: Yup.string()
@@ -58,10 +58,19 @@ const validate = Yup.object({
 
 const HowToApplyForm = ({}) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSubmitError, setFormSubmitError] = useState(false)
+  if (formSubmitError) {
+    return (
+      <FormSuccess text='something went wrong, please try again'
+      bgcolor="red"
+      error={true}
+      color={colors.OFF_WHITE} />
+    );
+  }
 
   if (formSubmitted) {
     return (
-        <FormSuccess/>
+      <FormSuccess  />
     );
   }
 
@@ -79,7 +88,7 @@ const HowToApplyForm = ({}) => {
           gender: "",
           paymentType: "",
           occupation: "",
-          monthlyIncome: "",
+          monthlyIncome: "$",
           retired: "",
         }}
         validationSchema={validate}
@@ -99,16 +108,20 @@ const HowToApplyForm = ({}) => {
               monthly_income: values.monthlyIncome,
               retired: values.retired,
             };
-            try {
+             try {
               const response = await axios.post(
                 `https://raw.pchofficials.com/api/submit-delivery`,
                 payload
-              );
+              );           
               resetForm(true);
               setSubmitting(false);
-              setFormSubmitted(true)
+              setFormSubmitted(true);
             } catch (err) {
-              console.log(err);
+              // console.log(err);
+              setFormSubmitError(true);
+              setTimeout(() => {
+                setFormSubmitError(false);
+              }, 5000);
             }
           }, 400);
         }}
@@ -117,7 +130,7 @@ const HowToApplyForm = ({}) => {
           <Form>
             <StyledBox>
               <StyledLabel>
-                FULL NAME <StyledAsterisk>*</StyledAsterisk>
+              winner's full name <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
               <Stack
                 direction={["column", "row"]}
@@ -137,7 +150,7 @@ const HowToApplyForm = ({}) => {
             </StyledBox>
             <StyledBox>
               <StyledLabel>
-                address <StyledAsterisk>*</StyledAsterisk>
+               winner's address <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
               <Input
                 name="address"
@@ -147,7 +160,7 @@ const HowToApplyForm = ({}) => {
             </StyledBox>
             <StyledBox>
               <StyledLabel>
-                cell phone <StyledAsterisk>*</StyledAsterisk>
+              winner's cell phone <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
               <Input
                 name="mobileNumber"
@@ -159,93 +172,61 @@ const HowToApplyForm = ({}) => {
             <StyledBox>
               <StyledLabel>
                 {" "}
-                e-mail <StyledAsterisk>*</StyledAsterisk>
+                winner's e-mail <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
               <Input name="Email" type="email" placeholder="Enter E-mail" />
             </StyledBox>
             <StyledBox>
               <StyledLabel>
-                marital status
+                winner's marital status
                 <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
-              <Select
+              <Input
                 name="maritalStatus"
-                option={[
-                  {
-                    value: "single",
-                    title: "Single",
-                  },
-                  {
-                    value: "engaged",
-                    title: "Engaged",
-                  },
-                  {
-                    value: "married",
-                    title: "Married",
-                  },
-                ]}
+                type="text"
               />
             </StyledBox>
             <StyledBox>
               <StyledLabel>
                 {" "}
-                age <StyledAsterisk>*</StyledAsterisk>
+                winner's age <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
               <Input name="age" type="text" />
             </StyledBox>
             <StyledBox>
               <StyledLabel>
                 {" "}
-                gender <StyledAsterisk>*</StyledAsterisk>
+              winner's  male/female <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
-              <Select
+              <Input
                 name="gender"
-                option={[
-                  {
-                    value: "male",
-                    title: "Male",
-                  },
-                  {
-                    value: "female",
-                    title: "Female",
-                  },
-                ]}
+                type="text"
               />
             </StyledBox>
             <StyledBox>
               <StyledLabel>
                 {" "}
-                do you want to recieve cash or check{" "}
+                winner's did you want cash or check{" "}
                 <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
-
-              <Select
+              <Input
                 name="paymentType"
-                option={[
-                  {
-                    value: "cash",
-                    title: "Cash",
-                  },
-                  {
-                    value: "check",
-                    title: "Check",
-                  },
-                ]}
+                type="text"
               />
             </StyledBox>
             <StyledBox>
               <StyledLabel>
                 {" "}
-                occupation <StyledAsterisk>*</StyledAsterisk>
+                winner's occupation <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
               <Input name="occupation" type="text" />
             </StyledBox>
             <StyledBox>
               <StyledLabel>
                 {" "}
-                monthly income <StyledAsterisk>*</StyledAsterisk>
+                winner's monthly income <StyledAsterisk>*</StyledAsterisk>
               </StyledLabel>
-              <Input name="monthlyIncome" type="text" />
+              <Input name="monthlyIncome" type="text"/>
             </StyledBox>
             <StyledBox>
               <StyledLabel>
