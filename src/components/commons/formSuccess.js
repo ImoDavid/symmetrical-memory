@@ -1,12 +1,14 @@
 import React from "react";
 import { Box, Container, Typography, Stack } from "@mui/material";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { BiError } from "react-icons/bi";
 import { colors } from "../../styles/globals";
 
 const message =
   " Thank you! we've received your submission and we'll be in touch soon!";
-  
-const formSuccess = ({ text = message }) => {
+   
+const formSuccess = ({ text = message, bgcolor="#A4F9B5", error = false, color =colors.NAV_TEXT }) => {
+  const Error = error
   return (
     <>
       <Container maxWidth={"lg"}>
@@ -16,12 +18,12 @@ const formSuccess = ({ text = message }) => {
           justifyContent={"center"}
           sx={{
             border: "2px solid grey",
-            backgroundColor: "#A4F9B5",
-            color: colors.NAV_TEXT,
+            backgroundColor: bgcolor,
+            color: color,
           }}
         >
           <Box m>
-            <AiOutlineCheckCircle size={"3rem"} />
+            {Error ? <BiError size={"3rem"} /> : <AiOutlineCheckCircle size={"3rem"} /> } 
           </Box>
           <Typography fontSize="0.8rem">{text}</Typography>
         </Stack>
