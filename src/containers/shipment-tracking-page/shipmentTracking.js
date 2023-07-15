@@ -171,7 +171,7 @@ const ShipmentTracking = () => {
                         </Typography>
                       </ListItem>
                       <ListItem>
-                        <Typography textTransform={'capitalize'}>
+                        <Typography textTransform={'none'}>
                           <b>Shipper E-mail:</b> {trackingReport.shipper_email}
                         </Typography>
                       </ListItem>
